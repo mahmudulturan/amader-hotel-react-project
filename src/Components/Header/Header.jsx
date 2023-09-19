@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -22,18 +22,55 @@ const Header = () => {
                   />
                 </svg>
               </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li>
-                  <a></a>
-                </li>
-                <li>
-                  <a>Cart</a>
-                </li>
+
+              <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <NavLink
+                  to={`/home`}
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "bg-primaryColor text-basicColor py-2 px-3 rounded-md hover:bg-basicColor hover:text-primaryColor duration-500"
+                      : isPending
+                      ? "pending"
+                      : "hover:bg-primaryColor hover:text-basicColor py-2 px-3 rounded-md text-primaryColor duration-500"
+                  }>
+                  <button>Home</button>
+                </NavLink>
+                <NavLink
+                  to={`/catagories`}
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "bg-primaryColor text-basicColor py-2 px-3 rounded-md hover:bg-basicColor hover:text-primaryColor duration-500"
+                      : isPending
+                      ? "pending"
+                      : "hover:bg-primaryColor hover:text-basicColor py-2 px-3 rounded-md text-primaryColor duration-500"
+                  }>
+                  <button>Catagories</button>
+                </NavLink>
+                <NavLink
+                  to={`/cart`}
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "bg-primaryColor text-basicColor py-2 px-3 rounded-md hover:bg-basicColor hover:text-primaryColor duration-500"
+                      : isPending
+                      ? "pending"
+                      : "hover:bg-primaryColor hover:text-basicColor py-2 px-3 rounded-md text-primaryColor duration-500"
+                  }>
+                  <button>Cart</button>
+                </NavLink>
+                <NavLink
+                  to={`/login`}
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "bg-primaryColor text-basicColor py-2 px-3 rounded-md hover:bg-basicColor hover:text-primaryColor duration-500"
+                      : isPending
+                      ? "pending"
+                      : "hover:bg-primaryColor hover:text-basicColor py-2 px-3 rounded-md text-primaryColor duration-500"
+                  }>
+                  <button>LogIn</button>
+                </NavLink>
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">Amader Hotel</a>
+            <Link to='/' className="btn btn-ghost normal-case text-xl">Amader Hotel</Link>
           </div>
           <div className="hidden lg:flex">
             <ul className="flex gap-2 px-1 font-medium">
