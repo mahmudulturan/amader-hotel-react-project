@@ -1,7 +1,11 @@
+import Header from "../Components/Header/Header";
+import { Outlet } from "react-router-dom";
+
 const MainLayout = () => {
     return (
-        <div>
-            <h1 className="text-5xl">Hello World!!!</h1>
+        <div className="md:w-11/12 mx-auto">
+            <Header></Header>
+            <Outlet></Outlet>
         </div>
     );
 };
