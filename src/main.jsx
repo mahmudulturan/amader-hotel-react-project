@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './Layout/MainLayout'
-import Catagories from './Components/Catagories/Catagories'
+import Categories from './Components/Categories/Categories'
 import Cart from './Components/Cart/Cart'
 import Login from './Components/Login/Login'
 import Home from './Components/Home/Home'
+import CategoryDetail from './Components/CategoryDetail/CategoryDetail'
+import ProductDetails from './Components/ProductDetails/ProductDetails'
 
 const router = createBrowserRouter([
   {
@@ -14,12 +16,13 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     children: [
       {
-        path: ('/home'),
+        path: ('/'),
         element: <Home></Home>
       },
       {
-        path: ('/catagories'),
-        element: <Catagories></Catagories>
+        path: ('/categories'),
+        loader: ()=> fetch('https://www.themealdb.com/api/json/v1/1/categories.php') ,
+        element: <Categories></Categories>
       },
       {
         path: ('/cart'),
@@ -29,6 +32,16 @@ const router = createBrowserRouter([
         path: ('/login'),
         element: <Login></Login>
       },
+      {
+        path: "/categories/:categoryName",
+        loader: ({params})=> fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.categoryName}`),
+        element: <CategoryDetail></CategoryDetail>
+      },
+      {
+        path: "/categories/product/:productId",
+        loader: ({params})=> fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.productId}`),
+        element: <ProductDetails></ProductDetails>
+      }
     ]
   }
 ])

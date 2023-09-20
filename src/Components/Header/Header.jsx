@@ -75,7 +75,7 @@ const Header = () => {
           <div className="hidden lg:flex">
             <ul className="flex gap-2 px-1 font-medium">
               <NavLink
-                to={`/home`}
+                to={`/`}
                 className={({ isActive, isPending }) =>
                   isActive
                     ? "bg-primaryColor text-basicColor py-2 px-3 rounded-md hover:bg-basicColor hover:text-primaryColor duration-500"
@@ -86,7 +86,7 @@ const Header = () => {
                 <button>Home</button>
               </NavLink>
               <NavLink
-                to={`/catagories`}
+                to={`/categories`}
                 className={({ isActive, isPending }) =>
                   isActive
                     ? "bg-primaryColor text-basicColor py-2 px-3 rounded-md hover:bg-basicColor hover:text-primaryColor duration-500"
@@ -94,7 +94,7 @@ const Header = () => {
                     ? "pending"
                     : "hover:bg-primaryColor hover:text-basicColor py-2 px-3 rounded-md text-primaryColor duration-500"
                 }>
-                <button>Catagories</button>
+                <button>Categories</button>
               </NavLink>
               <NavLink
                 to={`/cart`}
